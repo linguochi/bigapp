@@ -1,0 +1,48 @@
+{
+  "name": "w17",
+  "description": "A Vue.js project",
+  "version": "1.0.0",
+  "author": "覃超成 <meimaonong@163.com>",
+  "private": true,
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
+    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
+    "dlldev": "cross-env NODE_ENV=development webpack --config webpack.dll.config.js",
+    "dll": "cross-env NODE_ENV=production webpack --config webpack.dll.config.js"
+  },
+  "dependencies": {
+    "babel-runtime": "^6.23.0",
+    "fastclick": "^1.0.6",
+    "vue": "^2.1.0",
+    "vue-resource": "^1.2.1",
+    "vue-router": "^2.3.1",
+    "vuex": "^2.2.1",
+    "vux": "2.2.1"
+  },
+  "devDependencies": {
+    "babel-core": "^6.0.0",
+    "babel-loader": "^6.0.0",
+    "babel-plugin-component": "^0.9.1",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-latest": "^6.0.0",
+    "cross-env": "^3.0.0",
+    "css-loader": "^0.25.0",
+    "file-loader": "^0.11.1",
+    "html-webpack-plugin": "^2.28.0",
+    "import-glob": "^1.5.0",
+    "ip": "^1.1.5",
+    "less": "^2.7.2",
+    "less-loader": "^2.2.3",
+    "script-loader": "^0.7.0",
+    "style-loader": "^0.17.0",
+    "url-loader": "^0.5.8",
+    "vue-loader": "^11.1.4",
+    "vue-template-compiler": "^2.3.2",
+    "vux-loader": "^1.0.58",
+    "webpack": "2.6.1",
+    "webpack-bundle-analyzer": "^2.4.0",
+    "webpack-dev-server": "^2.2.0",
+    "webpack-notifier": "^1.5.0"
+  }
+}

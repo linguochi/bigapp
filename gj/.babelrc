@@ -1,0 +1,17 @@
+{
+  "presets": [
+    ["latest", {
+      "es2015": { "modules": false }
+    }]
+  ],
+  "plugins": [
+  	["transform-object-rest-spread"],
+  	["transform-runtime"],
+	  ["component", [
+	    {
+	      "libraryName": "mint-ui",
+	      "style": true
+	    }
+	  ]]
+  ]
+}
