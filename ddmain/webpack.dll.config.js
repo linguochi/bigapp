@@ -10,13 +10,13 @@ if (process.env.NODE_ENV === 'production') {
         vendor: vArr
       },
       output: {
-        path: path.join(__dirname, './'),
+        path: path.join(__dirname, './dist/'),
         filename: '[name]/vendor.dll.js',
         library: '[name]'
       },
       plugins: [
         new webpack.DllPlugin({
-          path: path.join(__dirname, './', '[name]/vendor-manifest.json'),
+          path: path.join(__dirname, './dist/', '[name]/vendor-manifest.json'),
           name: '[name]'
         }),
         new webpack.DefinePlugin({
@@ -39,13 +39,13 @@ if (process.env.NODE_ENV === 'production') {
        vendor: vArr
      },
      output: {
-       path: path.join(__dirname, './'),
+       path: path.join(__dirname, './dist/'),
        filename: '[name]/vendor.dll.dev.js',
        library: '[name]'
      },
      plugins: [
        new webpack.DllPlugin({
-         path: path.join(__dirname, './', '[name]/vendor-manifest-dev.json'),
+         path: path.join(__dirname, './dist/', '[name]/vendor-manifest-dev.json'),
          name: '[name]'
        })
      ]

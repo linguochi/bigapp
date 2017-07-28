@@ -39,20 +39,21 @@ let p_filename,
 
 // 生成环境
 if (process.env.NODE_ENV === 'production') {
-      p_filename = '[name]/build.js?[chunkhash:8]'
-      p_manifest = './vendor/vendor-manifest.json'
+      p_filename = 'dist/[name]/build.js?[chunkhash:8]'
+      p_manifest = './dist/vendor/vendor-manifest.json'
       p_devtoolTip = false
 
       // 打包数据分析
       pluginsList.push(
           new BundleAnalyzerPlugin({
-            analyzerMode: 'static', 
+            analyzerMode: 'static',
+            reportFilename: 'dist/report.html', 
             openAnalyzer: false
           })
       )
 } else {
-      p_filename = '[name]/build.js?[hash:8]'
-      p_manifest = './vendor/vendor-manifest-dev.json'
+      p_filename = 'dist/[name]/build.js?[hash:8]'
+      p_manifest = './dist/vendor/vendor-manifest-dev.json'
       p_devtoolTip = true
 }
 
@@ -75,7 +76,7 @@ pluginsList.push(
   new HtmlWebpackPlugin({
     title: '示例项目',
     env: process.env.NODE_ENV === 'production',
-    filename: '../index.html',
+    filename: 'index.html',
     template: './src/tpl/tpl.html',
     hash: false,
     chunks: ['common', 'main']
@@ -110,10 +111,10 @@ pluginsList.push(
 const webpackConfig = {
   entry: './src/main.js',
   output: {
-    path: path.resolve(__dirname, './dist'),
-    publicPath: '/dist/',
-    filename: '[name]/build.js?[chunkhash:8]',
-    chunkFilename: '[name].js?[chunkhash:8]'
+    path: path.resolve(__dirname, './'),
+    publicPath: '/',
+    filename: 'dist/[name]/build.js?[chunkhash:8]',
+    chunkFilename: 'dist/[name].js?[chunkhash:8]'
   },
   module: {
     rules: [
