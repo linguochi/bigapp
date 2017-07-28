@@ -35,6 +35,8 @@ export default {
         vm.currentView = 'daijia'
       } else if (index === 2) {
         vm.currentView = 'gongjiao'
+      } else if (index === 3) {
+        vm.currentView = 'kuaiche'
       }
     },
   },

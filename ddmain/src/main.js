@@ -4,6 +4,7 @@ import App from './App.vue'
 import LoadScript from 'vue-plugin-load-script'
 
 const Taxi = require('./Taxi.vue')
+const Kuaiche = require('./Kuaiche.vue')
 
 window.DDApp = {
   Vue,
@@ -24,6 +25,10 @@ window.DDApp = {
     256: {
       name: 'gongjiao',
       src: 'http://127.0.0.1:8686/dist/build.js'
+    },
+    257: {
+      name: 'kuaiche',
+      component: Kuaiche
     },
   },
   registerBiz(id, component) {
