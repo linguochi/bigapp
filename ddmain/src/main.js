@@ -1,12 +1,22 @@
 
 import App from './App.vue'
 
-import LoadScript from 'vue-plugin-load-script';
+import LoadScript from 'vue-plugin-load-script'
+
+const Taxi = require('./Taxi.vue')
 
 window.DDApp = {
   Vue,
+  VueResource,
+  VueRouter,
+  Vuex,
+
   modules: {},
   bizConf: {
+    254: {
+      name: 'taxi',
+      component: Taxi
+    },
     255: {
       name: 'daijia',
       src: 'http://127.0.0.1:8585/dist/build.js'
@@ -21,9 +31,16 @@ window.DDApp = {
   }
 }
 
-//window.DDApp.registerBiz(255, 'tet')
+// VueResource
+window.DDApp.Vue.use(window.DDApp.VueResource)
 
-window.DDApp.Vue.use(LoadScript);
+// 配置路由
+window.DDApp.Vue.use(window.DDApp.VueRouter)
+
+// 配置vuex
+window.DDApp.Vue.use(window.DDApp.Vuex)
+
+window.DDApp.Vue.use(LoadScript)
 
 for (let id in window.DDApp.bizConf) { 
   let conf = window.DDApp.bizConf[id] 
@@ -36,12 +53,26 @@ for (let id in window.DDApp.bizConf) {
         reject() 
       }) 
     }) 
-  } 
+  } else {
+    window.DDApp.Vue.component(conf.name, (resolve, reject) => {
+      conf.component ? resolve(conf.component) : reject()
+    }) 
+  }
 }
 
 
 
+const routes = [
+  { path: '/', component: Taxi },
+  { path: '/taxi', component: Taxi }
+]
+
+const router = new window.DDApp.VueRouter({
+  routes // （缩写）相当于 routes: routes
+})
+
 new window.DDApp.Vue({
   el: '#app',
+  router,
   render: h => h(App)
 })
