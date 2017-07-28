@@ -1,7 +1,6 @@
-import Vue from 'vue'
-import App from './App.vue'
+import daijia from './App.vue'
 
-new Vue({
-  el: '#app',
-  render: h => h(App)
-})
+if (typeof window !== 'undefined' && window.DDApp.Vue) {
+  window.DDApp.registerBiz(255, daijia)
+}
+

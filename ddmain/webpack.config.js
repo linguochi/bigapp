@@ -75,7 +75,7 @@ pluginsList.push(
   new HtmlWebpackPlugin({
     title: '示例项目',
     env: process.env.NODE_ENV === 'production',
-    filename: 'index.html',
+    filename: '../index.html',
     template: './src/tpl/tpl.html',
     hash: false,
     chunks: ['common', 'main']
@@ -110,8 +110,8 @@ pluginsList.push(
 const webpackConfig = {
   entry: './src/main.js',
   output: {
-    path: path.resolve(__dirname, './'),
-    publicPath: '/',
+    path: path.resolve(__dirname, './dist'),
+    publicPath: '/dist/',
     filename: '[name]/build.js?[chunkhash:8]',
     chunkFilename: '[name].js?[chunkhash:8]'
   },

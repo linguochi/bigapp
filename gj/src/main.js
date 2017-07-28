@@ -1,7 +1,5 @@
-import Vue from 'vue'
-import App from './App.vue'
+import gongjiao from './App.vue'
 
-new Vue({
-  el: '#app',
-  render: h => h(App)
-})
+if (typeof window !== 'undefined' && window.DDApp.Vue) {
+  window.DDApp.registerBiz(256, gongjiao)
+}
